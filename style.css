@@ -13,21 +13,60 @@ html, body{
 
 .conteiner {
 display:grid;
-
+grid-template-columns: 200px 1fr;
+grid-template-rows: 100px 1fr 70px;
+grid-template-areas: "header header"
+                      "aside main"
+                      "footer footer";
+                      height: 100%;
 }
 
 header{
-  background-color: red;
+
+  grid-area: header;
 }
 
 aside{
-  background-color: green;
+  grid-area: aside;
+
+  text-align: center;
+  padding-top: 50px;
+  
 }
 
 main{
-  background-color: yellow;
+  grid-area: main;
+
   }
 
   footer{
-background-color: blue;
+    grid-area: footer;
+
+  }
+
+  li{
+    margin-left:-20px;
+    margin-top:20px;
+    font-size: 1.3em;
+    text-align: left;
+    cursor: pointer;
+     }
+
+  aside img{
+    height: 30px;
+    width: 30px;
+   
+    }
+
+ aside span{
+  vertical-align: 6px;
+ }
+
+.dn{
+  width: 40px;
+  height: 40px;
+ }
+  .dn:hover{
+    border:1px solid rgb(149, 241, 169);
+    border-radius: 10%;
   }
