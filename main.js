@@ -11,4 +11,29 @@ $(document).ready(function () {
     }
   });
 
+  $('ul li').click(function(){
+   
+ if($(this).attr('class')=='li1'){
+  $('main > h3').text('Первые блюда');
+      $('img.mainImg').hide().attr('src','./images/first.jpg').fadeIn(1000);
+    }
+
+    if($(this).attr('class')=='li2'){
+      $('main > h3').text('Вторые блюда');
+      $('img.mainImg').hide().attr('src','./images/second.jpg').fadeIn(1000);
+      }
+      if($(this).attr('class')=='li3'){
+        $('main > h3').text('Салаты');
+        $('img.mainImg').hide().attr('src','./images/salat.jpg').fadeIn(1000);
+        }
+        if($(this).attr('class')=='li4'){
+          $('main > h3').text('Выпечка');
+          $('img.mainImg').hide().attr('src','./images/cake.jpg').fadeIn(1000);
+          }
+          if($(this).attr('class')=='li5'){
+            $('main > h3').text('Другие блюда');
+            $('img.mainImg').hide().attr('src','./images/other.jpg').fadeIn(1000);
+            }
+  });
+
 });
