@@ -72,6 +72,23 @@ main{
   }
 
   .mainImg{
-    width: 400px;
+    width: 300px;
     height: auto;
   }
+
+  div.panel{
+   position:relative;
+    margin-top: 20px;
+    }
+    div.panel > form{
+      display:inline;
+    }
+
+    .add_form {
+      margin-top: 20px;
+      padding:20px;
+      border: 1px solid red;
+     
+        }
+
+  

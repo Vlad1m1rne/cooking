@@ -36,4 +36,24 @@ $(document).ready(function () {
             }
   });
 
+  $('#btn1').click(function(){
+    $('#btn1').hide();
+    $('.add_form').show();
+    console.log('btn1');
+
+  });
+
+  $('#btn2').click(function(){
+    console.log('btn2');
+    $('#btn1').show();
+    $('.add_form').hide();
+  })
+
+
+
+
 });
+
+
+
+
