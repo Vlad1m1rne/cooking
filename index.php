@@ -1,12 +1,13 @@
 <?php
-if($_COOKIE['show']){
-  
-   setcookie("show","on",time()-100);
-    header("Location: index.php"); die();
-  }
-if($_GET['show']){
-  setcookie("show","on",time()+1000);
- }
+if ($_COOKIE['show']) {
+
+  setcookie("show", "on", time() - 100);
+  header("Location: index.php");
+  die();
+}
+if ($_GET['show']) {
+  setcookie("show", "on", time() + 1000);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,43 +30,48 @@ if($_GET['show']){
 
     <aside>
       <form method="GET">
-      <ul type="none">
-      <button class="btn" name="show" type="submit" value="all">
-        <li class="li0"><img src="./images/arrow1.png"><span> Все рецепты</span></li></button>
-        <button class="btn" name="show" type="submit" value="first">
-        <li class="li1"><img src="./images/arrow1.png"><span> Первые блюда </span></li></button>
-        <button class="btn" name="show" type="submit" value="second">
-        <li class="li2"><img src="./images/arrow1.png"><span> Вторые блюда</span></li></button>
-        <button class="btn" name="show" type="submit" value="salat">
-        <li class="li3"><img src="./images/arrow1.png"><span> Салаты</span></li></button>
-        <button class="btn" name="show" type="submit" value="cake">
-        <li class="li4"><img src="./images/arrow1.png"><span> Выпечка</span></li></button>
-        <button class="btn" name="show" type="submit" value="other">
-        <li class="li5"><img src="./images/arrow1.png"><span> Другое</span></li></button>
-      </ul>
+        <ul type="none">
+          <button class="btn" name="show" type="submit" value="all">
+            <li class="li0"><img src="./images/arrow1.png"><span> Все рецепты</span></li>
+          </button>
+          <button class="btn" name="show" type="submit" value="first">
+            <li class="li1"><img src="./images/arrow1.png"><span> Первые блюда </span></li>
+          </button>
+          <button class="btn" name="show" type="submit" value="second">
+            <li class="li2"><img src="./images/arrow1.png"><span> Вторые блюда</span></li>
+          </button>
+          <button class="btn" name="show" type="submit" value="salat">
+            <li class="li3"><img src="./images/arrow1.png"><span> Салаты</span></li>
+          </button>
+          <button class="btn" name="show" type="submit" value="cake">
+            <li class="li4"><img src="./images/arrow1.png"><span> Выпечка</span></li>
+          </button>
+          <button class="btn" name="show" type="submit" value="other">
+            <li class="li5"><img src="./images/arrow1.png"><span> Другое</span></li>
+          </button>
+        </ul>
       </form>
     </aside>
 
     <main>
       <h3><?
-      if(!(isset($_GET['show']))) echo"Выберите категорию";
-      if($_GET['show']=='all')echo "Все рецепты";
-      if($_GET['show']=='first')echo "Первые блюда";
-      if($_GET['show']=='second')echo "Вторые блюда";
-      if($_GET['show']=='salat')echo "Салаты";
-      if($_GET['show']=='cake')echo "Выпечка";
-      if($_GET['show']=='other')echo "Другое";
-      ?></h3>
+          if (!(isset($_GET['show']))) echo "Выберите категорию";
+          if ($_GET['show'] == 'all') echo "Все рецепты";
+          if ($_GET['show'] == 'first') echo "Первые блюда";
+          if ($_GET['show'] == 'second') echo "Вторые блюда";
+          if ($_GET['show'] == 'salat') echo "Салаты";
+          if ($_GET['show'] == 'cake') echo "Выпечка";
+          if ($_GET['show'] == 'other') echo "Другое";
+          ?></h3>
       <img class="mainImg" src=<?
-      if(!(isset($_GET['show']))) echo"\images\all.jpg";
-      if($_GET['show']=='all')echo "\images\all.jpg";
-      if($_GET['show']=='first')echo "./images/first.jpg";
-      if($_GET['show']=='second')echo "./images/second.jpg";
-      if($_GET['show']=='salat')echo "./images/salat.jpg";
-      if($_GET['show']=='cake')echo "./images/cake.jpg";
-      if($_GET['show']=='other')echo "./images/other.jpg";
-      
-      ?>>
+                                if (!(isset($_GET['show']))) echo "\images\all.jpg";
+                                if ($_GET['show'] == 'all') echo "\images\all.jpg";
+                                if ($_GET['show'] == 'first') echo "./images/first.jpg";
+                                if ($_GET['show'] == 'second') echo "./images/second.jpg";
+                                if ($_GET['show'] == 'salat') echo "./images/salat.jpg";
+                                if ($_GET['show'] == 'cake') echo "./images/cake.jpg";
+                                if ($_GET['show'] == 'other') echo "./images/other.jpg";
+                                ?>>
 
       <div class="panel">
         <form method="GET">
@@ -148,7 +154,6 @@ if($_GET['show']){
             echo "<td>" . $row['dat'] . "</td>";
             echo "</tr>";
           }
-        
         }
         ?>
 

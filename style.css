@@ -1,7 +1,8 @@
-html, body{
+html,
+body {
   height: 100%;
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
   background-color: rgb(88, 164, 240);
   text-align: center;
 }
@@ -12,109 +13,116 @@ html, body{
 }
 
 .conteiner {
-display:grid;
-grid-template-columns: 200px 1fr;
-grid-template-rows: 100px 1fr 70px;
-grid-template-areas: "header header"
-                      "aside main"
-                      "footer footer";
-                      height: 100%;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: 100px 1fr 70px;
+  grid-template-areas: "header header"
+    "aside main"
+    "footer footer";
+  height: 100%;
 }
 
-header{
+header {
 
   grid-area: header;
 }
 
-aside{
+aside {
   grid-area: aside;
   text-align: left;
   padding-top: 50px;
-  
+
 }
 
-main{
+main {
   grid-area: main;
 
-  }
+}
 
-  footer{
-    grid-area: footer;
+footer {
+  grid-area: footer;
 
-  }
+}
 
-  li {
-    margin-left:-20px;
-    margin-top:20px;
-    font-size: 1.3em;
-    text-align: left;
-    cursor: pointer;
-     }
+li {
+  margin-left: -20px;
+  margin-top: 20px;
+  font-size: 1.3em;
+  text-align: left;
+  cursor: pointer;
+}
 
-  aside img{
-    height: 30px;
-    width: 30px;
-   
-    }
+aside img {
+  height: 30px;
+  width: 30px;
 
- aside span{
+}
+
+aside span {
   vertical-align: 6px;
- }
+}
 
-.dn{
+.dn {
   width: 40px;
   height: 40px;
- }
-  .dn:hover{
-    border:1px solid rgb(149, 241, 169);
-    border-radius: 10%;
-  }
+}
 
-  .mainImg{
-    width: 300px;
-    height: auto;
-  }
+.dn:hover {
+  border: 1px solid rgb(149, 241, 169);
+  border-radius: 10%;
+}
 
-  div.panel{
-   position:relative;
-    margin-top: 20px;
-    }
-    div.panel > form{
-      display:inline;
-    }
+.mainImg {
+  width: 300px;
+  height: auto;
+}
 
-    .add_form {
-      margin-top: 20px;
-      padding-top:20px;
-        
-        }
+div.panel {
+  position: relative;
+  margin-top: 20px;
+}
 
-    .add_form span{
-      font-size: 1.2em;
-      }
-      .add_form select,input,textarea{
-        margin-top:15px;
-      }
+div.panel>form {
+  display: inline;
+}
 
-  .mainT{
-    margin-top:10px;
-    border:1px solid green;
-    border-spacing: 5px;
-    background-color: rgb(55, 204, 210);
-    width: 90%;
-  }
+.add_form {
+  margin-top: 20px;
+  padding-top: 20px;
 
-  .mainT th, td{
-    margin: 6px;
-    border: 1px solid grey;
-  }
-  .btn{
-    background-color: rgb(88, 164, 240);
-    border:none;
-  }
+}
 
-  .btnN{
-    background-color: rgb(2, 0, 27);
-    border:none;
-    color:white;
-  }
+.add_form span {
+  font-size: 1.2em;
+}
+
+.add_form select,
+input,
+textarea {
+  margin-top: 15px;
+}
+
+.mainT {
+  margin-top: 10px;
+  border: 1px solid green;
+  border-spacing: 5px;
+  background-color: rgb(55, 204, 210);
+  width: 90%;
+}
+
+.mainT th,
+td {
+  margin: 6px;
+  border: 1px solid grey;
+}
+
+.btn {
+  background-color: rgb(88, 164, 240);
+  border: none;
+}
+
+.btnN {
+  background-color: rgb(2, 0, 27);
+  border: none;
+  color: white;
+}
