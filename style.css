@@ -28,8 +28,7 @@ header{
 
 aside{
   grid-area: aside;
-
-  text-align: center;
+  text-align: left;
   padding-top: 50px;
   
 }
@@ -44,7 +43,7 @@ main{
 
   }
 
-  li{
+  li {
     margin-left:-20px;
     margin-top:20px;
     font-size: 1.3em;
@@ -86,9 +85,36 @@ main{
 
     .add_form {
       margin-top: 20px;
-      padding:20px;
-      border: 1px solid red;
-     
+      padding-top:20px;
+        
         }
 
-  
+    .add_form span{
+      font-size: 1.2em;
+      }
+      .add_form select,input,textarea{
+        margin-top:15px;
+      }
+
+  .mainT{
+    margin-top:10px;
+    border:1px solid green;
+    border-spacing: 5px;
+    background-color: rgb(55, 204, 210);
+    width: 90%;
+  }
+
+  .mainT th, td{
+    margin: 6px;
+    border: 1px solid grey;
+  }
+  .btn{
+    background-color: rgb(88, 164, 240);
+    border:none;
+  }
+
+  .btnN{
+    background-color: rgb(2, 0, 27);
+    border:none;
+    color:white;
+  }
