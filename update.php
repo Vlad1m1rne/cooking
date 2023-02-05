@@ -1,8 +1,7 @@
 <?
 if (isset($_POST['recipeId']) and isset($_POST['nameRecipe']) and isset($_POST['ingredient']) and isset($_POST['recipeDescription'])) {
 
-  // var_dump($_POST);  
-  require "connect.php";
+    require "connect.php";
 
   $sql = "UPDATE recipe 
 SET nameRecipe = :nameRecipe, ingredient = :ing, recipeDescription = :descr, link = :link
@@ -17,6 +16,6 @@ WHERE recipeId = :id";
   $stmt->bindParam(":link", $_POST['link']);
 
   $result = $stmt->execute();
-  header("Refresh:3;url=index.php");
+  header("Refresh:2;url=index.php");
   echo "Рецепт обновлен";
 } else echo "Error update!!!";

@@ -111,6 +111,21 @@ if ($_GET['show']) {
 
       </div>
 
+      <div class="updF" style="display: none">
+        <h4>Изменить рецепт</h4>
+        <form action="update.php" method="POST">
+          <input hidden class="inpUpd" type="number" name="recipeId">
+          <input disabled class="inpUpd" type="number" name="recipeId"><span>Id</span><br>
+          <input type="text" size="48" name="nameRecipe"><span>Название рецепта</span><br>
+          <textarea rows="8" cols="50" name="ingredient"></textarea><span>Ингредиенты</span><br>
+          <textarea rows="12" cols="53" name="recipeDescription"></textarea><span>Описание</span><br>
+          <input type="url" size="48" name="link"><span>Ссылка на рецепт</span><br>
+
+          <input type="submit" value="Отредактировать">
+          <input type="reset" id="btn4" value="Отмена редактирования">
+        </form>
+
+      </div>
       <table class="mainT">
         <tr>
           <th>Id</th>
@@ -162,20 +177,7 @@ if ($_GET['show']) {
         }
         ?>
       </table>
-      <div class="updF" style="display: none">
-        <form action="update.php" method="POST">
-          <input hidden class="inpUpd" type="number" name="recipeId">
-          <input disabled class="inpUpd" type="number" name="recipeId"><span>Id</span><br>
-          <input type="text" size="48" name="nameRecipe"><span>Название рецепта</span><br>
-          <textarea rows="8" cols="50" name="ingredient"></textarea><span>Ингредиенты</span><br>
-          <textarea rows="12" cols="53" name="recipeDescription"></textarea><span>Описание</span><br>
-          <input type="url" size="48" name="link"><span>Ссылка на рецепт</span><br>
 
-          <input type="submit" value="Отредактировать">
-          <input type="reset" id="btn4" value="Отмена редактирования">
-        </form>
-
-      </div>
     </main>
 
     <footer>
