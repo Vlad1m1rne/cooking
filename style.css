@@ -12,6 +12,7 @@ body {
   color: white;
 }
 
+@media (min-width: 1000px){
 .conteiner {
   display: grid;
   grid-template-columns: 200px 1fr;
@@ -43,7 +44,7 @@ footer {
   grid-area: footer;
 
 }
-
+}
 li {
   margin-left: -20px;
   margin-top: 20px;
@@ -131,5 +132,23 @@ td {
   background-color: rgb(2, 0, 27);
   border: none;
   color: white;
+
 }
 
+@media (max-width: 999px){
+  .mainImg {
+    width: 200px;
+    height: auto;
+  }
+  .mainT{
+    border-spacing: 2px;
+    width:95%;
+    text-align: center;
+  }
+  .add_form {
+    margin-top: 7px;
+    padding-top: 7px;
+  
+  }
+
+}

@@ -141,22 +141,22 @@ if ($_GET['show']) {
         <?php
         if (isset($_GET['show'])) {
           if ($_GET['show'] == 'all') {
-            $sql = "SELECT  recipeId,nameCategory, nameRecipe, ingredient, recipeDescription, link, dat FROM recipe JOIN category using(categoryId) ORDER BY dat";
+            $sql = "SELECT  recipeId,nameCategory, nameRecipe, ingredient, recipeDescription, link, dat FROM recipe JOIN category using(categoryId) ORDER BY categoryId";
           }
           if ($_GET['show'] == 'first') {
-            $sql = "SELECT  recipeId,nameCategory, nameRecipe, ingredient, recipeDescription, link, dat FROM recipe JOIN category using(categoryId) WHERE categoryId = 1 ORDER BY dat";
+            $sql = "SELECT  recipeId,nameCategory, nameRecipe, ingredient, recipeDescription, link, dat FROM recipe JOIN category using(categoryId) WHERE categoryId = 1 ORDER BY categoryId";
           }
           if ($_GET['show'] == 'second') {
-            $sql = "SELECT  recipeId,nameCategory, nameRecipe, ingredient, recipeDescription, link, dat FROM recipe JOIN category using(categoryId) WHERE categoryId = 2 ORDER BY dat";
+            $sql = "SELECT  recipeId,nameCategory, nameRecipe, ingredient, recipeDescription, link, dat FROM recipe JOIN category using(categoryId) WHERE categoryId = 2 ORDER BY categoryId";
           }
           if ($_GET['show'] == 'salat') {
-            $sql = "SELECT  recipeId,nameCategory, nameRecipe, ingredient, recipeDescription, link, dat FROM recipe JOIN category using(categoryId) WHERE categoryId = 3 ORDER BY dat";
+            $sql = "SELECT  recipeId,nameCategory, nameRecipe, ingredient, recipeDescription, link, dat FROM recipe JOIN category using(categoryId) WHERE categoryId = 3 ORDER BY categoryId";
           }
           if ($_GET['show'] == 'cake') {
-            $sql = "SELECT  recipeId,nameCategory, nameRecipe, ingredient, recipeDescription, link, dat FROM recipe JOIN category using(categoryId) WHERE categoryId = 4 ORDER BY dat";
+            $sql = "SELECT  recipeId,nameCategory, nameRecipe, ingredient, recipeDescription, link, dat FROM recipe JOIN category using(categoryId) WHERE categoryId = 4 ORDER BY categoryId";
           }
           if ($_GET['show'] == 'other') {
-            $sql = "SELECT recipeId, nameCategory, nameRecipe, ingredient, recipeDescription, link, dat FROM recipe JOIN category using(categoryId) WHERE categoryId = 5 ORDER BY dat";
+            $sql = "SELECT recipeId, nameCategory, nameRecipe, ingredient, recipeDescription, link, dat FROM recipe JOIN category using(categoryId) WHERE categoryId = 5 ORDER BY categoryId";
           }
 
           require "connect.php";

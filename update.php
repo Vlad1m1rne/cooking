@@ -1,6 +1,6 @@
 <?
 if (isset($_POST['recipeId']) and isset($_POST['nameRecipe']) and isset($_POST['ingredient']) and isset($_POST['recipeDescription'])) {
-
+if($_POST['nameRecipe']!="" and $_POST['ingredient']!="" and $_POST['recipeDescription']!=""){
     require "connect.php";
 
   $sql = "UPDATE recipe 
@@ -18,4 +18,7 @@ WHERE recipeId = :id";
   $result = $stmt->execute();
   header("Refresh:2;url=index.php");
   echo "Рецепт обновлен";
+}
+else echo "Заполните все данные из формы";
+ header("Refresh:2;url=index.php");
 } else echo "Error update!!!";
