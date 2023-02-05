@@ -12,6 +12,15 @@ $(document).ready(function () {
     }
   });
 
+  $('button.upd').click(function () {
+    $('.updF').show();
+    let id = $(this).val();
+    $('.inpUpd').val(id);
+  });
+  $('#btn4').click(function () {
+    $('.updF').hide();
+  })
+
   $('ul li').click(function () {
 
     if ($(this).attr('class') == 'li0') {
@@ -53,6 +62,7 @@ $(document).ready(function () {
     $('#btn1').show();
     $('.add_form').hide();
   });
+
 
 });
 

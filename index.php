@@ -6,7 +6,7 @@ if ($_COOKIE['show']) {
   die();
 }
 if ($_GET['show']) {
-  setcookie("show", "on", time() + 1000);
+  setcookie("show", "on", time() + 10000);
 }
 ?>
 <!DOCTYPE html>
@@ -90,6 +90,7 @@ if ($_GET['show']) {
       </div>
 
       <div class="add_form" style="display: none">
+        <h4>Добавить рецепт</h4>
         <form action="add.php" method="POST">
           <span>Категория:</span>
           <select name="categoryId">
@@ -112,39 +113,42 @@ if ($_GET['show']) {
 
       <table class="mainT">
         <tr>
+          <th>Id</th>
           <th>Категория</th>
           <th>Название</th>
-          <th>Ингридиенты</th>
+          <th>Ингредиенты</th>
           <th>Рецепт</th>
           <th>Ссылка</th>
           <th>Дата добавления</th>
+          <th>Редактировать</th>
         </tr>
 
         <?php
         if (isset($_GET['show'])) {
           if ($_GET['show'] == 'all') {
-            $sql = "SELECT nameCategory, nameRecipe, ingredient, recipeDescription, link, dat FROM recipe JOIN category using(categoryId) ORDER BY dat";
+            $sql = "SELECT  recipeId,nameCategory, nameRecipe, ingredient, recipeDescription, link, dat FROM recipe JOIN category using(categoryId) ORDER BY dat";
           }
           if ($_GET['show'] == 'first') {
-            $sql = "SELECT nameCategory, nameRecipe, ingredient, recipeDescription, link, dat FROM recipe JOIN category using(categoryId) WHERE categoryId = 1 ORDER BY dat";
+            $sql = "SELECT  recipeId,nameCategory, nameRecipe, ingredient, recipeDescription, link, dat FROM recipe JOIN category using(categoryId) WHERE categoryId = 1 ORDER BY dat";
           }
           if ($_GET['show'] == 'second') {
-            $sql = "SELECT nameCategory, nameRecipe, ingredient, recipeDescription, link, dat FROM recipe JOIN category using(categoryId) WHERE categoryId = 2 ORDER BY dat";
+            $sql = "SELECT  recipeId,nameCategory, nameRecipe, ingredient, recipeDescription, link, dat FROM recipe JOIN category using(categoryId) WHERE categoryId = 2 ORDER BY dat";
           }
           if ($_GET['show'] == 'salat') {
-            $sql = "SELECT nameCategory, nameRecipe, ingredient, recipeDescription, link, dat FROM recipe JOIN category using(categoryId) WHERE categoryId = 3 ORDER BY dat";
+            $sql = "SELECT  recipeId,nameCategory, nameRecipe, ingredient, recipeDescription, link, dat FROM recipe JOIN category using(categoryId) WHERE categoryId = 3 ORDER BY dat";
           }
           if ($_GET['show'] == 'cake') {
-            $sql = "SELECT nameCategory, nameRecipe, ingredient, recipeDescription, link, dat FROM recipe JOIN category using(categoryId) WHERE categoryId = 4 ORDER BY dat";
+            $sql = "SELECT  recipeId,nameCategory, nameRecipe, ingredient, recipeDescription, link, dat FROM recipe JOIN category using(categoryId) WHERE categoryId = 4 ORDER BY dat";
           }
           if ($_GET['show'] == 'other') {
-            $sql = "SELECT nameCategory, nameRecipe, ingredient, recipeDescription, link, dat FROM recipe JOIN category using(categoryId) WHERE categoryId = 5 ORDER BY dat";
+            $sql = "SELECT recipeId, nameCategory, nameRecipe, ingredient, recipeDescription, link, dat FROM recipe JOIN category using(categoryId) WHERE categoryId = 5 ORDER BY dat";
           }
 
           require "connect.php";
           $result =  $con->query($sql);
           while ($row = $result->fetch()) {
             echo "<tr> ";
+            echo "<td> " . $row['recipeId'] . "</td>";
             echo "<td>" . $row['nameCategory'] . "</td>";
             echo "<td>" . $row['nameRecipe'] . "</td>";
             echo "<td>" . $row['ingredient'] . "</td>";
@@ -152,12 +156,26 @@ if ($_GET['show']) {
             if ($row['link']) echo "<td><a href=" . $row['link'] . ">Ссылка</a></td>";
             else echo "<td>" . $row['link'] . "</td>";
             echo "<td>" . $row['dat'] . "</td>";
+            echo "<td><button class='upd' value='" .  $row["recipeId"] . "'>Изменить</button></td>";
             echo "</tr>";
           }
         }
         ?>
-
       </table>
+      <div class="updF" style="display: none">
+        <form action="update.php" method="POST">
+          <input hidden class="inpUpd" type="number" name="recipeId">
+          <input disabled class="inpUpd" type="number" name="recipeId"><span>Id</span><br>
+          <input type="text" size="48" name="nameRecipe"><span>Название рецепта</span><br>
+          <textarea rows="8" cols="50" name="ingredient"></textarea><span>Ингредиенты</span><br>
+          <textarea rows="12" cols="53" name="recipeDescription"></textarea><span>Описание</span><br>
+          <input type="url" size="48" name="link"><span>Ссылка на рецепт</span><br>
+
+          <input type="submit" value="Отредактировать">
+          <input type="reset" id="btn4" value="Отмена редактирования">
+        </form>
+
+      </div>
     </main>
 
     <footer>
