@@ -12,7 +12,7 @@ body {
   color: white;
 }
 
-@media (min-width: 1000px){
+@media (min-width: 800px){
 .conteiner {
   display: grid;
   grid-template-columns: 200px 1fr;
@@ -135,7 +135,7 @@ td {
 
 }
 
-@media (max-width: 999px){
+@media (max-width: 799px){
   .conteiner{
     display:flex;
     flex-direction: column;
@@ -150,6 +150,8 @@ td {
     text-align: center;
   }
   .add_form {
+    margin-left:auto;
+    margin-right: auto;
     margin-top: 7px;
     padding-top: 7px;
   

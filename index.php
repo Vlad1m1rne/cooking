@@ -1,12 +1,18 @@
 <?php
-if ($_COOKIE['show']) {
-
-  setcookie("show", "on", time() - 100);
-  header("Location: index.php");
-  die();
+if($_SERVER['REQUEST_METHOD']=='POST' and isset($_COOKIE['show']) ){
+  setcookie('double','double',time()+1000);
+  setcookie('show','show',time()-100);
+  header('Location:' . $_SERVER['PHP_SELF']);
+  exit;
 }
-if ($_GET['show']) {
-  setcookie("show", "on", time() + 10000);
+elseif($_SERVER['REQUEST_METHOD']=='POST' and isset($_COOKIE['double'])){
+  setcookie('show','show',time()+1000);
+  setcookie('double','double',time()-100);
+  header('Location:' . $_SERVER['PHP_SELF']);
+
+}
+elseif($_SERVER['REQUEST_METHOD']=='GET'){
+  setcookie('show','show',time()-100);
 }
 ?>
 <!DOCTYPE html>
@@ -29,7 +35,7 @@ if ($_GET['show']) {
     </header>
 
     <aside>
-      <form method="GET">
+      <form method="POST">
         <ul type="none">
           <button class="btn" name="show" type="submit" value="all">
             <li class="li0"><img src="./images/arrow1.png"><span> Все рецепты</span></li>
@@ -55,26 +61,26 @@ if ($_GET['show']) {
 
     <main>
       <h3><?
-          if (!(isset($_GET['show']))) echo "Выберите категорию";
-          if ($_GET['show'] == 'all') echo "Все рецепты";
-          if ($_GET['show'] == 'first') echo "Первые блюда";
-          if ($_GET['show'] == 'second') echo "Вторые блюда";
-          if ($_GET['show'] == 'salat') echo "Салаты";
-          if ($_GET['show'] == 'cake') echo "Выпечка";
-          if ($_GET['show'] == 'other') echo "Другое";
+          if (!(isset($_POST['show']))) echo "Выберите категорию";
+          if ($_POST['show'] == 'all') echo "Все рецепты";
+          if ($_POST['show'] == 'first') echo "Первые блюда";
+          if ($_POST['show'] == 'second') echo "Вторые блюда";
+          if ($_POST['show'] == 'salat') echo "Салаты";
+          if ($_POST['show'] == 'cake') echo "Выпечка";
+          if ($_POST['show'] == 'other') echo "Другое";
           ?></h3>
       <img class="mainImg" src=<?
-                                if (!(isset($_GET['show']))) echo "\images\all.jpg";
-                                if ($_GET['show'] == 'all') echo "\images\all.jpg";
-                                if ($_GET['show'] == 'first') echo "./images/first.jpg";
-                                if ($_GET['show'] == 'second') echo "./images/second.jpg";
-                                if ($_GET['show'] == 'salat') echo "./images/salat.jpg";
-                                if ($_GET['show'] == 'cake') echo "./images/cake.jpg";
-                                if ($_GET['show'] == 'other') echo "./images/other.jpg";
+                                if (!(isset($_POST['show']))) echo "\images\all.jpg";
+                                if ($_POST['show'] == 'all') echo "\images\all.jpg";
+                                if ($_POST['show'] == 'first') echo "./images/first.jpg";
+                                if ($_POST['show'] == 'second') echo "./images/second.jpg";
+                                if ($_POST['show'] == 'salat') echo "./images/salat.jpg";
+                                if ($_POST['show'] == 'cake') echo "./images/cake.jpg";
+                                if ($_POST['show'] == 'other') echo "./images/other.jpg";
                                 ?>>
 
       <div class="panel">
-        <form method="GET">
+        <form method="POST">
           <select name="show">
             <option selected value="all">Все</option>
             <option value="first">Первые блюда</option>
@@ -139,23 +145,23 @@ if ($_GET['show']) {
         </tr>
 
         <?php
-        if (isset($_GET['show'])) {
-          if ($_GET['show'] == 'all') {
+        if (isset($_POST['show'])) {
+          if ($_POST['show'] == 'all') {
             $sql = "SELECT  recipeId,nameCategory, nameRecipe, ingredient, recipeDescription, link, dat FROM recipe JOIN category using(categoryId) ORDER BY categoryId";
           }
-          if ($_GET['show'] == 'first') {
+          if ($_POST['show'] == 'first') {
             $sql = "SELECT  recipeId,nameCategory, nameRecipe, ingredient, recipeDescription, link, dat FROM recipe JOIN category using(categoryId) WHERE categoryId = 1 ORDER BY categoryId";
           }
-          if ($_GET['show'] == 'second') {
+          if ($_POST['show'] == 'second') {
             $sql = "SELECT  recipeId,nameCategory, nameRecipe, ingredient, recipeDescription, link, dat FROM recipe JOIN category using(categoryId) WHERE categoryId = 2 ORDER BY categoryId";
           }
-          if ($_GET['show'] == 'salat') {
+          if ($_POST['show'] == 'salat') {
             $sql = "SELECT  recipeId,nameCategory, nameRecipe, ingredient, recipeDescription, link, dat FROM recipe JOIN category using(categoryId) WHERE categoryId = 3 ORDER BY categoryId";
           }
-          if ($_GET['show'] == 'cake') {
+          if ($_POST['show'] == 'cake') {
             $sql = "SELECT  recipeId,nameCategory, nameRecipe, ingredient, recipeDescription, link, dat FROM recipe JOIN category using(categoryId) WHERE categoryId = 4 ORDER BY categoryId";
           }
-          if ($_GET['show'] == 'other') {
+          if ($_POST['show'] == 'other') {
             $sql = "SELECT recipeId, nameCategory, nameRecipe, ingredient, recipeDescription, link, dat FROM recipe JOIN category using(categoryId) WHERE categoryId = 5 ORDER BY categoryId";
           }
 
