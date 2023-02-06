@@ -1,20 +1,3 @@
-<?php
-if($_SERVER['REQUEST_METHOD']=='POST' and isset($_COOKIE['show']) ){
-  setcookie('double','double',time()+1000);
-  setcookie('show','show',time()-100);
-  header('Location:' . $_SERVER['PHP_SELF']);
-  exit;
-}
-elseif($_SERVER['REQUEST_METHOD']=='POST' and isset($_COOKIE['double'])){
-  setcookie('show','show',time()+1000);
-  setcookie('double','double',time()-100);
-  header('Location:' . $_SERVER['PHP_SELF']);
-
-}
-elseif($_SERVER['REQUEST_METHOD']=='GET'){
-  setcookie('show','show',time()-100);
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 
